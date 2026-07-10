@@ -1,0 +1,59 @@
+#!/bin/sh -f
+########################## Sun queue system options
+#SBATCH --time  184:00:00
+#SBATCH --job-name=m1_00_Vitamin_B2-uni_conformers-CLUST_3_gfn2_opt
+#SBATCH --nodes=1
+##SBATCH --mem=45Gb
+##SBATCH --exclusive
+##SBATCH --hint=nomultithread
+#SBATCH --ntasks=16
+##SBATCH --cpu-bind=sockets
+##SBATCH --cpus-per-task=2
+
+#################### ORCA Job
+machine=`hostname`
+echo "Job started on $machine at"
+date
+TMPDIR=/tmp/$SLURM_JOBID
+echo The job directory is $TMPDIR
+STARTDIR=/hdd/minenky/Vitamins/CREST_ADDITIONAL/GFN2-SEARCH
+echo The home directory is $STARTDIR
+ORCADIR=/home/soft/programs/crest
+mkdir $TMPDIR
+cd $TMPDIR
+echo I am here `pwd`
+# HERE YOU SHOULD PUT CHECK FOR VECTORS!!!
+echo The following files are here before ORCA starts
+ulimit -s unlimited 
+
+echo -----Running ORCA -----
+cp $STARTDIR/m1_00_Vitamin_B2-uni_conformers-CLUST_3_gfn2_opt.xyz m1_00_Vitamin_B2-uni_conformers-CLUST_3_gfn2_opt.xyz 
+cp $ORCADIR/crest crest 
+
+# this is to fix the SCF instabilities
+# see here: https://orcaforum.kofo.mpg.de/viewtopic.php?f=11&t=7844
+export PATH=/home/soft/programs/crest:$PATH
+ulimit -l unlimited
+echo The following files are here before ORCA starts
+echo `ls`
+./crest m1_00_Vitamin_B2-uni_conformers-CLUST_3_gfn2_opt.xyz --T 16 --gfn2 > m1_00_Vitamin_B2-uni_conformers-CLUST_3_gfn2_opt.out 
+
+echo The following files are here after ORCA is finished
+echo `ls`
+cp m1_00_Vitamin_B2-uni_conformers-CLUST_3_gfn2_opt.out $STARTDIR/
+mv crestopt.log m1_00_Vitamin_B2-uni_conformers-CLUST_3_gfn2_opt.log
+mv crest_conformers.xyz m1_00_Vitamin_B2-uni_conformers-CLUST_3_gfn2_opt_conformers.xyz
+mv crest_best.xyz m1_00_Vitamin_B2-uni_conformers-CLUST_3_gfn2_opt_best.xyz
+cp m1_00_Vitamin_B2-uni_conformers-CLUST_3_gfn2_opt.log $STARTDIR/
+cp m1_00_Vitamin_B2-uni_conformers-CLUST_3_gfn2_opt.out $STARTDIR/
+cp m1_00_Vitamin_B2-uni_conformers-CLUST_3_gfn2_opt_conformers.xyz $STARTDIR/
+cp m1_00_Vitamin_B2-uni_conformers-CLUST_3_gfn2_opt_best.xyz $STARTDIR/
+
+tar zcvf sys.argv[1].tar.gz $TMPDIR
+cp m1_00_Vitamin_B2-uni_conformers-CLUST_3_gfn2_opt.tar.gz $STARTDIR/
+
+cd $STARTDIR
+echo "Job finished on $machine at"
+date
+rm -rf $TMPDIR
+exit 0
