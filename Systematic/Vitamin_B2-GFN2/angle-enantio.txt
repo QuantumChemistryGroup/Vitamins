@@ -1,0 +1,138 @@
+Parallel starts
+
+Iteration:  0 permuation:  0  ( 24 )
+26521
+LEN:  9380
+Iteration:  1 permuation:  0  ( 24 )
+45556
+LEN:  9944
+Iteration:  2 permuation:  0  ( 24 )
+55483
+LEN:  10000
+Iteration:  3 permuation:  0  ( 24 )
+59797
+LEN:  10009
+Iteration:  4 permuation:  0  ( 24 )
+63560
+LEN:  10017
+Iteration:  5 permuation:  0  ( 24 )
+65433
+LEN:  10017
+Iteration:  6 permuation:  1  ( 40 )
+105967
+LEN:  10019
+Iteration:  7 permuation:  0  ( 24 )
+110505
+LEN:  10019
+Iteration:  8 permuation:  1  ( 38 )
+120549
+LEN:  10019
+Iteration:  9 permuation:  2  ( 54 )
+141602
+LEN:  10019
+Iteration:  10 permuation:  3  ( 70 )
+164122
+LEN:  10019
+Iteration:  11 permuation:  4  ( 86 )
+188185
+LEN:  10019
+Iteration:  12 permuation:  5  ( 102 )
+212954
+LEN:  10021
+Iteration:  13 permuation:  0  ( 24 )
+212954
+LEN:  10021
+Iteration:  14 permuation:  1  ( 38 )
+214048
+LEN:  10021
+Iteration:  15 permuation:  2  ( 52 )
+228832
+LEN:  10021
+Iteration:  16 permuation:  3  ( 68 )
+230928
+LEN:  10021
+Iteration:  17 permuation:  4  ( 83 )
+306604
+LEN:  10024
+Iteration:  18 permuation:  0  ( 24 )
+308770
+LEN:  10024
+Iteration:  19 permuation:  1  ( 38 )
+309568
+LEN:  10024
+Iteration:  20 permuation:  2  ( 53 )
+318240
+LEN:  10024
+Iteration:  21 permuation:  3  ( 69 )
+320311
+LEN:  10024
+Iteration:  22 permuation:  4  ( 84 )
+347146
+LEN:  10025
+Iteration:  23 permuation:  0  ( 24 )
+347146
+LEN:  10025
+Iteration:  24 permuation:  1  ( 40 )
+347146
+LEN:  10025
+Iteration:  25 permuation:  2  ( 54 )
+356604
+LEN:  10025
+Iteration:  26 permuation:  3  ( 69 )
+359183
+LEN:  10025
+Iteration:  27 permuation:  4  ( 83 )
+382550
+LEN:  10027
+Iteration:  28 permuation:  0  ( 24 )
+382580
+LEN:  10027
+Iteration:  29 permuation:  1  ( 38 )
+382668
+LEN:  10027
+Iteration:  30 permuation:  2  ( 52 )
+383319
+LEN:  10027
+Iteration:  31 permuation:  3  ( 66 )
+389288
+LEN:  10027
+Iteration:  32 permuation:  4  ( 80 )
+398304
+LEN:  10027
+Iteration:  33 permuation:  5  ( 94 )
+411649
+LEN:  10027
+Iteration:  34 permuation:  6  ( 109 )
+428975
+LEN:  10027
+Iteration:  35 permuation:  7  ( 123 )
+453264
+LEN:  10029
+Iteration:  36 permuation:  0  ( 24 )
+453264
+LEN:  10029
+Iteration:  37 permuation:  1  ( 40 )
+453267
+LEN:  10029
+Iteration:  38 permuation:  2  ( 56 )
+453651
+LEN:  10029
+Iteration:  39 permuation:  3  ( 72 )
+455435
+LEN:  10029
+Iteration:  40 permuation:  4  ( 88 )
+460274
+LEN:  10029
+Iteration:  41 permuation:  5  ( 104 )
+469400
+LEN:  10029
+Iteration:  42 permuation:  6  ( 120 )
+482888
+LEN:  10029
+Iteration:  43 permuation:  7  ( 135 )
+508597
+LEN:  10029
+Iteration:  44 permuation:  8  ( 151 )
+532955
+LEN:  10029
+UINQUE =  2119

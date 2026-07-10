@@ -1,0 +1,63 @@
+#!/bin/sh -f
+########################## Sun queue system options
+#SBATCH --time  184:00:00
+#SBATCH --job-name=m1_00_Vitamin_B9-GFN1_00016-B97-3C-TZ
+#SBATCH --nodes=1
+##SBATCH --mem=45Gb
+##SBATCH --exclusive
+##SBATCH --hint=nomultithread
+#SBATCH --ntasks=16
+##SBATCH --cpu-bind=sockets
+##SBATCH --cpus-per-task=2
+
+#################### ORCA Job
+machine=`hostname`
+echo "Job started on $machine at"
+date
+TMPDIR=/tmp/$SLURM_JOBID
+echo The job directory is $TMPDIR
+STARTDIR=/hdd/minenky/VITAMINS/Vitamin_B9-GFN1
+echo The home directory is $STARTDIR
+ORCADIR=/home/soft/programs/orca_6_0_1_shared_openmpi416
+mkdir $TMPDIR
+cd $TMPDIR
+echo I am here `pwd`
+# HERE YOU SHOULD PUT CHECK FOR VECTORS!!!
+echo The following files are here before ORCA starts
+ulimit -s unlimited 
+
+echo -----Running ORCA -----
+cp $STARTDIR/m1_00_Vitamin_B9-GFN1_00016-B97-3C-TZ.inp m1_00_Vitamin_B9-GFN1_00016-B97-3C-TZ.inp 
+
+# this is to fix the SCF instabilities
+# see here: https://orcaforum.kofo.mpg.de/viewtopic.php?f=11&t=7844
+ompi_info | grep -iw io
+export OMPI_MCA_io=romio321
+export PATH=/home/soft/OpenMPI/bin:/home/soft/programs/orca_6_0_1_shared_openmpi416:$PATH
+export LD_LIBRARY_PATH=/home/soft/OpenMPI/lib:${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+ulimit -l unlimited
+echo The following files are here before ORCA starts
+echo `ls`
+$ORCADIR/orca m1_00_Vitamin_B9-GFN1_00016-B97-3C-TZ.inp "--bind-to core:overload-allowed" > m1_00_Vitamin_B9-GFN1_00016-B97-3C-TZ.out 
+
+echo The following files are here after ORCA is finished
+echo `ls`
+gzip m1_00_Vitamin_B9-GFN1_00016-B97-3C-TZ.gbw 
+gzip m1_00_Vitamin_B9-GFN1_00016-B97-3C-TZ.loc 
+gzip m1_00_Vitamin_B9-GFN1_00016-B97-3C-TZ.pao 
+gzip m1_00_Vitamin_B9-GFN1_00016-B97-3C-TZ.prop 
+gzip m1_00_Vitamin_B9-GFN1_00016-B97-3C-TZ.hess
+cp m1_00_Vitamin_B9-GFN1_00016-B97-3C-TZ.out $STARTDIR/
+cp m1_00_Vitamin_B9-GFN1_00016-B97-3C-TZ.gbw.gz $STARTDIR/
+cp m1_00_Vitamin_B9-GFN1_00016-B97-3C-TZ.hess.gz $STARTDIR/
+##cp m1_00_Vitamin_B9-GFN1_00016-B97-3C-TZ.densities $STARTDIR/
+##cp m1_00_Vitamin_B9-GFN1_00016-B97-3C-TZ.loc.gz $STARTDIR/
+##cp m1_00_Vitamin_B9-GFN1_00016-B97-3C-TZ.pao.gz $STARTDIR/
+##cp m1_00_Vitamin_B9-GFN1_00016-B97-3C-TZ.prop.gz $STARTDIR/
+
+
+cd $STARTDIR
+echo "Job finished on $machine at"
+date
+rm -rf $TMPDIR
+exit 0

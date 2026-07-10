@@ -1,0 +1,39 @@
+Parallel starts
+
+Iteration:  0 permuation:  0  ( 24 )
+7165
+LEN:  4454
+Iteration:  1 permuation:  0  ( 24 )
+13230
+LEN:  4664
+Iteration:  2 permuation:  0  ( 24 )
+16361
+LEN:  4669
+Iteration:  3 permuation:  0  ( 24 )
+17366
+LEN:  4669
+Iteration:  4 permuation:  1  ( 38 )
+21343
+LEN:  4669
+Iteration:  5 permuation:  2  ( 52 )
+26416
+LEN:  4669
+Iteration:  6 permuation:  3  ( 67 )
+43522
+LEN:  4669
+Iteration:  7 permuation:  4  ( 83 )
+61947
+LEN:  4669
+Iteration:  8 permuation:  5  ( 98 )
+72153
+LEN:  4669
+Iteration:  9 permuation:  6  ( 114 )
+82245
+LEN:  4669
+Iteration:  10 permuation:  7  ( 128 )
+95265
+LEN:  4669
+Iteration:  11 permuation:  8  ( 143 )
+104477
+LEN:  4669
+UINQUE =  604

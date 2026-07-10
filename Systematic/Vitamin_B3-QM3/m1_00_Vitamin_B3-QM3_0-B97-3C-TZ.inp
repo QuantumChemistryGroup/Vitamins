@@ -1,0 +1,35 @@
+%pal nprocs 16 end
+%MaxCore 6000
+# put your comments here
+! B97-3C  OPT  FREQ DEFGRID3 NOTRAH
+%scf MaxIter 800 end
+%output
+Print [P_Hirshfeld] 1
+end
+%geom
+MaxIter 3000
+ TolE 1e-6 #TolE 5e-6 Energy change (a.u.)
+ TolRMSG 3e-5 #TolRMSG 1e-4 RMS gradient (a.u.)
+ TolMaxG 1e-4 #TolMaxG 3e-3 Max. element of gradient (a.u.)
+ TolRMSD 2e-3 #TolRMSD 2e-3 RMS displacement (a.u.)
+ TolMaxD 4e-3 #TolMaxD 4e-3 Max. displacement (a.u.)
+end
+* xyz 0 1
+ O      -2.48812075      -1.24762025       0.14924598
+ O      -2.61368939       0.96348704      -0.17577807
+ N       1.59599351      -1.24880751       0.20404101
+ C      -0.45672332      -0.04095751      -0.00025008
+ C       0.24090765       1.14751445      -0.16468892
+ C       0.26440417      -1.21570779       0.18133198
+ C       1.62138173       1.12707628      -0.14319073
+ C       2.25509916      -0.09722643       0.04441823
+ C      -1.94924465      -0.02945526      -0.02179602
+ H      -0.31310464       2.06781807      -0.30677656
+ H      -0.25669933      -2.15875627       0.31227205
+ H       2.20529912       2.03219662      -0.26767516
+ H       3.34350649      -0.15628088       0.06775282
+ H      -3.44900977      -1.14328055       0.12109348
+*
+
+
+
